@@ -1,0 +1,15 @@
+<div>{{js}}</div>
+
+<h2>{{page.title}}</h2>
+<div ng-repeat="i in page.sections|orderBy i.sequence" style="border: #ff3e27">
+    <h3 ng-show="i.ShowTitle">{{i.title}}</h3>
+    <div ng-repeat="j in i.controls">
+        <h4 ng-show="j.ShowTitle">{{j.title}}</h4>
+        <div ng-repeat="k in j.inputs">
+            <h5 ng-show="k.ShowTitle">{{k.title}}</h5>
+            <div ng-repeat="l in k.options">
+                <h6>{{l.title}}</h6>
+            </div>
+        </div>
+    </div>
+</div>

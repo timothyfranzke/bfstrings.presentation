@@ -1,0 +1,78 @@
+
+    <!--div class="sideNav">
+        <div class="instrument" >
+            <span class="clickable" ng-click="filterBanjo()"><img src="img/bg/banjos.png" alt="Banjos"/></span>
+            <span class="instLink" ng-click="filterBanjo()">
+                &#65515; Banjos
+            </span>
+        </div>
+
+        <div class="instrument">
+            <span class="clickable" ng-click="filterMando()"><img src="img/bg/mandolins.png" alt="Mandolins"/></span>
+            <span class="instLink" ng-click="filterMando()">
+                &#65515; Mandolins
+            </span>
+        </div>
+
+        <div class="instrument lastBox">
+            <span class="clickable" ng-click="filterGuitar()"><img src="img/bg/guitars.png" alt="Guitars"/></span>
+            <span class="instLink" ng-click="filterGuitar()">
+                &#65515; Guitars
+            </span>
+        </div>
+        <div class="clear"></div>
+    </div-->
+
+    <div>
+        <h1>{{type}}</h1>
+            <md-grid-list
+                    md-cols="4" md-cols-sm="4" md-cols-md="8" md-cols-gt-md="12"
+                    md-row-height="8:5"
+                    md-gutter="8px" md-gutter-gt-sm="4px">
+                <md-grid-tile ng-repeat="item in items"
+                              md-rowspan="3"
+                              md-colspan="4"
+
+                              ng-if="item.visible"
+                              layout="row"
+                              layout-align="start center"
+                              layout-padding
+                >
+
+ <!--                   <div class="catThumb" layout="row" layout-align="start">
+                        <img ng-src="img/inventory/{{item.id}}/1.png" />
+                    </div>
+                    <div layout="row" >
+                        <div layout="column">
+                            <h2>{{item.name}}</h2>
+                            <div layout="row" layout-margin>
+                                <md-button  class="backButton" ng-click="goItem(item.id)">
+                                    View
+                                </md-button>
+                                <md-button class="priceButtonMaterial" disabled>
+                                    <span style="color:white">${{item.price}}</span>
+                                </md-button>
+                                &lt;!&ndash;<a href="#/inventory/{{item.id}}" class="viewButton">View</a>
+
+                                <div class="priceButton">${{item.price}}</div>&ndash;&gt;
+                            </div>
+                        </div>
+
+                    </div>-->
+                    <div layout="row" layout-align="start">
+                        <div class="catThumb" layout="row" layout-align="">
+                            <img ng-src="img/inventory/{{item.id}}/1.png" />
+                        </div>
+                        <div layout="column" style="width:250px;">
+                            <h3>{{item.name}}</h3>
+                            <div layout="row">
+                                <a href="#/inventory/{{item.id}}" class="viewButton">View</a> <div class="priceButton">${{item.price}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </md-grid-tile>
+            </md-grid-list>
+    </div>

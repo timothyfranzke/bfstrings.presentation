@@ -1,0 +1,93 @@
+<div id="instWrap">
+
+    <div class="itemDescription" ng-show="showMainEdit">
+        <h2 ng-show="!!item.id">ID: {{item.id}}</h2>
+	
+        <label>Name</label>
+
+        <input type="text" ng-model="item.name"/><br/>
+
+        <label>Description <span class="clickable" ng-click="editDescription()">edit</span></label>
+
+        <div data-ng-bind-html="description"></div><br/>
+
+        <label>Price</label>
+
+        <input type="text" ng-model="item.price"/><br/>
+
+        <label>Instrument type</label>
+
+        <select ng-options="i.ID as i.Type for i in types" type="text" ng-model="item.type"></select><br/>
+
+		<label>Active</label>
+
+		<input type="checkbox" ng-model="item.active"/><br/>
+
+		<label>Sold</label>
+
+		<input type="checkbox" ng-model="item.sold"/><br/>
+
+		<span ng-show="!!item.id" class="backButton" ng-click="imageCropper()">Add Image</span>
+
+
+
+        <div ng-repeat="img in images" ng-show="!!item.id">
+
+            <img ng-src="img/inventory/{{img.folderId}}/{{img.itemId}}.png" width="25%" height="25%"/>
+
+            <input type="checkbox" ng-model="img.active"/><br/>
+
+        </div>
+
+
+
+		<!--img ng-repeat="img in item.savedImages" ng-src="img/inventory/{{item.id}}/{{img.imgId}}.png" width="10%" height="10%" style="margin:10px"/>
+
+		<img ng-repeat="image in item.images" data-ng-src="{{image}}" width="25%" height="25%" /-->
+
+        <a href="#" ng-show="!!item.id" class="backButton" ng-click="update(item)">Update</a>
+
+        <a href="#" ng-show="!item.id" class="backButton" ng-click="create(item)">Create</a>
+
+    </div>
+
+    <div ng-show="showDescriptionEdit">
+
+        <h1>Edit Description</h1>
+
+        <textarea ng-wig="descrip" class="editor1"></textarea>
+
+        <a href="#" class="backButton" ng-click="save(descrip)">Save</a>
+
+    </div>
+
+    <div ng-show="showImageCropper">
+
+        <div class="create-image imageCropperBg">
+
+            <p >Wanna start over? &rarr; <a ng-click="imageCropResult=null;imageCropStep=1">Reset</a></p>
+
+            <image-crop data-width="408"
+
+                        data-height="490"
+
+                        data-shape="rectangle"
+
+                        data-step="imageCropStep"
+
+                        data-result="artistImage"
+
+                        ng-show="showImageCropper">
+
+            </image-crop>
+
+        </div>
+
+    </div>
+
+    <div class="clear"></div>
+
+
+
+</div>
+

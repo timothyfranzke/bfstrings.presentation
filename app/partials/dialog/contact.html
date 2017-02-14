@@ -1,0 +1,55 @@
+<md-dialog layout-padding>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Contact Us</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <md-icon class="material-icon" style="color:white">close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content >
+
+        <div layout="column">
+            <md-input-container>
+                <label>Question</label>
+                <md-select ng-model="contact.question">
+                    <md-option ng-repeat="i in options">{{i.value}}</md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container>
+                <label>Type</label>
+                <md-select ng-model="contact.itemType" ng-change="getItems(contact.itemType)">
+                    <md-option ng-repeat="i in instrumentTypes">{{i.value}}</md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container>
+                <label>Instrument</label>
+                <md-select ng-model="contact.itemName">
+                    <md-option ng-repeat="i in items">{{i.name}}</md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+        <form>
+            <md-input-container>
+                <label>First Name</label>
+                <input type="text" class="contact"  ng-model="contact.firstName">
+            </md-input-container>
+            <md-input-container>
+                <label>Last Name</label>
+                <input type="text" class="contact" ng-model="contact.lastName">
+            </md-input-container>
+            <md-input-container>
+                <label>Email</label>
+                <input type="email" class="contact" ng-model="contact.email">
+            </md-input-container>
+            <textarea rows="4" cols="20" placeholder="Comment" ng-model="contact.body" style="margin: 0px; width: 75%; height: 175px;"></textarea>
+        </form>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-click="sendEmail(contact)">
+                Send
+            </md-button>
+        </md-dialog-actions>
+    </md-dialog-content>
+</md-dialog>

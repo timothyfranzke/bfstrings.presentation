@@ -1,0 +1,24 @@
+<div id="instWrap">
+    <div class="breadCrumbs">
+        <div class="searchBar">
+            <a href="#/admin/inventory/new" class="viewButton">Add Item</a>
+            <input type="text" class="search" placeholder="Search" ng-model="searchValue" ng-change="search(searchValue)"></div>
+
+    </div>
+
+    <div id="catalogue">
+        <div class="catItem" ng-repeat="item in items">
+            <div class="catThumb">
+                <img ng-src="img/inventory/{{item.id}}/1.png" />
+            </div>
+            <h3>{{item.name}}</h3>
+            <a href="#/admin/inventory/{{item.id}}" class="viewButton">Edit</a> <div class="priceButton">${{item.price}}</div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+
+    </div>
+
+    <div class="clear"></div>
+
+</div>

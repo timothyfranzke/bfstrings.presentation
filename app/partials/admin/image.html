@@ -1,0 +1,11 @@
+<div class="create-image imageCropperBg">
+<p >Wanna start over? &rarr; <a ng-click="imageCropResult=null;imageCropStep=1">Reset</a></p>
+<image-crop data-width="408"
+            data-height="490"
+            data-shape="rectangle"
+            data-step="imageCropStep"
+            data-result="artistImage"
+            ng-show="showImageCropper">
+</image-crop>
+<img data-ng-src="{{artistImage}}" />
+</div>

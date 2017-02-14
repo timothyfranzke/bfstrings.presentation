@@ -1,0 +1,65 @@
+<div id="instWrap">
+    <div class="breadCrumbs">
+        <div class="searchBar">
+            <select class="filter" ng-model="filter" ng-change="runFilter(filter)">
+                <option value="PriceAsec">Price: Low to High</option>
+                <option value="PriceDesc">Price: High to Low</option>
+                <option value="AZ">A to Z</option>
+                <option value="ZA">Z to A</option>
+            </select>
+
+            <input type="text" class="search" placeholder="Search" ng-model="searchValue" ng-change="search(searchValue)"></div>
+
+
+        <a ui-sref="home">Home</a> » <a href="#">Instruments</a> » <a href="#">{{type}}</a>
+    </div>
+
+
+    <div class="sideNav">
+        <div class="instrument" >
+            <a ui-sref="banjos"><img src="img/bg/banjos.png" alt="Banjos"/></a>
+            <a class="instLink" ui-sref="banjos">
+                &#65515; Banjos
+            </a>
+        </div>
+
+        <div class="instrument">
+            <a ui-sref="mandos"><img src="img/bg/mandolins.png" alt="Mandolins"/></a>
+            <a class="instLink" ui-sref="mandolins">
+                &#65515; Mandolins
+            </a>
+        </div>
+
+        <div class="instrument lastBox">
+            <a ui-sref="guitars"><img src="img/bg/guitars.png" alt="Guitars"/></a>
+            <a class="instLink" ui-sref="guitars">
+                &#65515; Guitars
+            </a>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="catalogue">
+        <h1>Contact Us</h1>
+        <label for="questionType">Question: </label><select id="questionType" class="contact"  ng-options="i.value as i.value for i in options" ng-model="contact.question"></select><br/><br/>
+        <span ng-show="contact.question!=='General Question'" ><label for="itemType">Type: </label><select id="itemType" class="contact"ng-options="i.value as i.value for i in instrumentTypes" ng-model="contact.itemType" ng-change="getItems(contact.itemType)"></select></span><br/><br/>
+        <span ng-show="contact.itemType"><label for="itemType">Instrument: </label><select class="contact" ng-options="i.name as i.name for i in items" ng-model="contact.itemName"></select></span>
+        <hr>
+        <form>
+            <input type="text" class="contact" placeholder="First Name" ng-model="contact.firstName"><br/><br/>
+            <input type="text" class="contact" placeholder="Last Name" ng-model="contact.lastName"><br/><br/>
+            <input type="text" class="contact" placeholder="Email" ng-model="contact.email"><br/><br/>
+            <textarea rows="4" cols="20" placeholder="Comment" ng-model="contact.body" style="margin: 0px; width: 75%; height: 175px;"></textarea>
+
+            <input type="submit" style="cursor:pointer" class="viewButton" value="Send" ng-click="sendEmail(contact)">
+        </form>
+
+
+
+        <div class="clear"></div>
+
+    </div>
+
+    <div class="clear"></div>
+
+</div>
